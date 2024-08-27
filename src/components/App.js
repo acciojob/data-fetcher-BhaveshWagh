@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "regenerator-runtime/runtime";
+import 'regenerator-runtime/runtime';
 
 const App = () => {
   const [output, setOutput] = useState(null);
@@ -12,14 +12,10 @@ const App = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(api);
-        if (
-          response.data &&
-          response.data.products &&
-          response.data.products.length > 0
-        ) {
+        if (response.data && response.data.products && response.data.products.length > 0) {
           setOutput(response.data.products);
         } else {
-          setOutput(null); // Handle case where data is empty
+          setOutput(null);  // Handle case where data is empty
         }
       } catch (error) {
         setError(`An error occurred: ${error.message}`);
@@ -43,7 +39,7 @@ const App = () => {
           <pre>{JSON.stringify(output, null, 2)}</pre>
         </div>
       ) : (
-        <p>No data found</p> // Display this if output is null or empty
+        <p>No data found</p>  // Display this if output is null or empty
       )}
     </div>
   );
